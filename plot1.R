@@ -3,9 +3,7 @@ library("data.table")
 setwd("~/Desktop/household_power_consumption")
 
 #Reads in data from file then subsets data for specified dates
-powerDT <- data.table::fread(input = "household_power_consumption.txt"
-                             , na.strings="?"
-                             )
+powerDT <- data.table::fread(input = "household_power_consumption.txt", na.strings="?")
 
 # Prevents histogram from printing in scientific notation
 powerDT[, Global_active_power := lapply(.SD, as.numeric), .SDcols = c("Global_active_power")]
